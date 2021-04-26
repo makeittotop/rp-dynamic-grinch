@@ -1,5 +1,6 @@
 from flask import Flask
 from datetime import datetime
+import geocoder
 
 app = Flask(__name__)
 
@@ -8,4 +9,4 @@ def index():
     now = datetime.now()
 
     current_time = now.strftime("%d/%m/%y %H:%M:%S")
-    return "Current Time in USA = " + current_time
+    return "Current Time in " + str(geocoder.ip('me')) + " = " + current_time
